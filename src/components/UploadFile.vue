@@ -1,5 +1,5 @@
 <template>
-  <div class="upload-file">
+  <div id="upload-file">
     <section>
       <b-field>
         <b-upload v-model="dropFiles" multiple drag-drop>
@@ -25,6 +25,7 @@
 
 <script>
 export default {
+  name: "upload-file",
   data() {
     return {
       dropFiles: []
@@ -40,6 +41,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#upload-file {
+  text-align: center;
+  margin: 10%;
+}
 h3 {
   margin: 40px 0 0;
 }
