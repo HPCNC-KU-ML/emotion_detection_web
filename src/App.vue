@@ -6,17 +6,17 @@
     >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <UploadFile msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import UploadFile from "./components/UploadFile.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    UploadFile
   }
 };
 </script>

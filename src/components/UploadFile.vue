@@ -1,14 +1,5 @@
 <template>
-  <div class="hello">
-    <!-- <b-field class="file">
-      <b-upload v-model="file">
-        <a class="button is-primary">
-          <b-icon icon="upload"></b-icon>
-          <span>Click to upload</span>
-        </a>
-      </b-upload>
-      <span class="file-name" v-if="file">{{ file.name }}</span>
-    </b-field>-->
+  <div class="upload-file">
     <section>
       <b-field>
         <b-upload v-model="dropFiles" multiple drag-drop>
@@ -22,7 +13,6 @@
           </section>
         </b-upload>
       </b-field>
-
       <div class="tags">
         <span v-for="(file, index) in dropFiles" :key="index" class="tag is-primary">
           {{file.name}}
