@@ -6,19 +6,22 @@
     >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <HeroTitle/>
-    <UploadFile msg="Welcome to Your Vue.js App"/>
+    <UploadFile/>
+    <ButtonPredict/>
   </div>
 </template>
 
 <script>
 import HeroTitle from "./components/HeroTitle.vue";
 import UploadFile from "./components/UploadFile.vue";
+import ButtonPredict from "./components/ButtonPredict.vue";
 
 export default {
   name: "app",
   components: {
     HeroTitle,
-    UploadFile
+    UploadFile,
+    ButtonPredict
   }
 };
 </script>
