@@ -14,10 +14,6 @@
 </template>
 
 <script>
-// ต้องเอาfileนี้ไปdeployบนserverเพราะchild_processไม่สามรถrunในbrowser
-// let spawn = require("child_process").spawn;
-// let pythonProcess = spawn("python", ["./../utility/test.py"]);
-
 export default {
   name: "button-predict",
   data: function() {
@@ -27,9 +23,6 @@ export default {
   },
   methods: {
     reverseMessage: function() {
-      this.message = pythonProcess.stdout.on("data", data => {
-        return data;
-      });
       return this.message;
     }
   }
