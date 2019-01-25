@@ -8,6 +8,7 @@
     <HeroTitle/>
     <UploadFile/>
     <ButtonPredict/>
+    <ListEmotion/>
   </div>
 </template>
 
@@ -15,13 +16,15 @@
 import HeroTitle from "./components/HeroTitle.vue";
 import UploadFile from "./components/UploadFile.vue";
 import ButtonPredict from "./components/ButtonPredict.vue";
+import ListEmotion from "./components/ListEmotion.vue";
 
 export default {
   name: "app",
   components: {
     HeroTitle,
     UploadFile,
-    ButtonPredict
+    ButtonPredict,
+    ListEmotion
   }
 };
 </script>
