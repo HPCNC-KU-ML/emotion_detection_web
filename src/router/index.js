@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Upload from '@/components/Upload'
 import Train from '@/components/Train'
 import Home from '@/components/Home'
+import Predict from '@/components/Predict'
 
 Vue.use(Router)
 
@@ -19,5 +20,9 @@ export default new Router({
     path: '/train',
     name: 'train',
     component: Train
+  }, {
+    path: '/predict',
+    name: 'predict',
+    component: Predict
   }]
 })
