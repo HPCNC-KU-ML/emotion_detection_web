@@ -1,5 +1,16 @@
 <template>
   <div id="upload-file">
+    <div id="emotion-picker">
+      <b-field label="Pick emotion">
+        <b-select placeholder="Select a name" id="emotion-picker">
+          <option
+            v-for="option in ['Happy','Sad','3',4,5,6]"
+            :value="option.id"
+            :key="option.id"
+          >{{ option }}</option>
+        </b-select>
+      </b-field>
+    </div>
     <section>
       <b-field>
         <b-upload v-model="dropFiles" multiple drag-drop>
@@ -13,7 +24,7 @@
           </section>
         </b-upload>
       </b-field>
-      <div class="tags">
+      <div class="tags" id="file-list">
         <span v-for="(file, index) in dropFiles" :key="index" class="tag is-primary">
           {{file.name}}
           <button class="delete is-small" type="button" @click="deleteDropFile(index)"></button>
@@ -58,5 +69,15 @@ li {
 }
 a {
   color: #42b983;
+}
+#file-list {
+  margin-left: 30%;
+  margin-right: 30%;
+}
+#emotion-picker {
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 5%;
+  text-align: left;
 }
 </style>
