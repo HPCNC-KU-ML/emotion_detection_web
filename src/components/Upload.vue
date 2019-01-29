@@ -1,5 +1,5 @@
 <template>
-  <div class="upload">
+  <div id="upload">
     <UploadFile/>
     <ButtonPredict/>
   </div>
@@ -16,3 +16,10 @@ export default {
   }
 };
 </script>
+
+<style>
+#upload {
+  margin-top: 2%;
+}
+</style>
+

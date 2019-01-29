@@ -24,7 +24,7 @@ export default {
 
 <style>
 #number-picker {
-  margin-top: 5%;
+  margin-top: 2%;
   margin-left: 30%;
   margin-right: 30%;
 }

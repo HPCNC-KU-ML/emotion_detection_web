@@ -1,5 +1,6 @@
 <template>
   <div id="upload-file">
+    <h1 class="title">Upload image/video to dataset</h1>
     <div id="emotion-picker">
       <b-field label="Pick emotion">
         <b-select placeholder="Select a name" id="emotion-picker">
@@ -54,7 +55,6 @@ export default {
 <style scoped>
 #upload-file {
   text-align: center;
-  margin-top: 10%;
 }
 h3 {
   margin: 40px 0 0;
