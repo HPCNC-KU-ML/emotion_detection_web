@@ -6,25 +6,18 @@
     >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
     <HeroTitle/>
-    <UploadFile/>
-    <ButtonPredict/>
-    <ListEmotion/>
+    <main>
+      <router-view/>
+    </main>
   </div>
 </template>
 
 <script>
-import HeroTitle from "./components/HeroTitle.vue";
-import UploadFile from "./components/UploadFile.vue";
-import ButtonPredict from "./components/ButtonPredict.vue";
-import ListEmotion from "./components/ListEmotion.vue";
-
+import HeroTitle from "@/components/HeroTitle";
 export default {
   name: "app",
   components: {
-    HeroTitle,
-    UploadFile,
-    ButtonPredict,
-    ListEmotion
+    HeroTitle
   }
 };
 </script>
