@@ -2,9 +2,14 @@
   <div id="upload-file">
     <h1 class="title">Upload image/video to dataset</h1>
     <div id="emotion-picker">
-      <b-field label="Pick emotion">
-        <b-select placeholder="Select a emotion" id="emotion-picker">
-          <option v-for="option in emotions" :value="option.id" :key="option.id">{{ option }}</option>
+      <b-field label="Select a emotion">
+        <b-select
+          placeholder="Select a emotion"
+          required
+          v-model="selectedEmotion"
+          @input="handleEmotionChange"
+        >
+          <option v-for="option in emotions" :value="option" :key="option">{{ option }}</option>
         </b-select>
       </b-field>
     </div>
@@ -27,7 +32,16 @@
           <button class="delete is-small" type="button" @click="deleteDropFile(index)"></button>
         </span>
       </div>
-      <button class="button is-primary" @click="uploadFile(dropFiles)">Click me!</button>
+      <button class="button is-primary" @click="uploadFile(dropFiles)">Upload</button>
+      <b-notification
+        type="is-success"
+        has-icon
+        :active.sync="uploadSuccess"
+      >Your file is uploaded to the server.</b-notification>
+      <!-- <b-notification
+        type="is-danger"
+        has-icon :active.sync="isActive"
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id fermentum quam. Proin sagittis, nibh id hendrerit imperdiet, elit sapien laoreet elit</b-notification>-->
     </section>
   </div>
 </template>
@@ -35,31 +49,41 @@
 <script>
 import axios from "axios";
 
+const url = "http://localhost:4000/upload/";
+
 export default {
   name: "upload-file",
   data() {
     return {
       dropFiles: [],
-      emotions: ["Angry", "Happy", "Neutral", "Sad", "Scared"]
+      emotions: ["Angry", "Happy", "Neutral", "Sad", "Scared"],
+      selectedEmotion: "Unselect",
+      uploadSuccess: false
     };
   },
   methods: {
     deleteDropFile(index) {
       this.dropFiles.splice(index, 1);
     },
-    handleEmotionChange(e) {
+    clearFile() {
+      this.dropFiles = [];
+    },
+    handleEmotionChange() {
       // eslint-disable-next-line
-      console.log(e.target.options[e.target.options.selectedIndex].dataset.foo);
+      console.log("selected: " + this.selectedEmotion);
     },
     async uploadFile(dropFiles) {
-      dropFiles.forEach(async function(file) {
+      let urlTemp = url + this.selectedEmotion.toLowerCase();
+      dropFiles.forEach(file => {
         let formData = new window.FormData();
         formData.append("files", file);
-        await axios({
+        axios({
           method: "POST",
-          url: "http://localhost:4000/upload",
+          url: urlTemp,
           data: formData
         }).then(response => {
+          this.uploadSuccess = true;
+          this.clearFile();
           return response;
         });
       });
