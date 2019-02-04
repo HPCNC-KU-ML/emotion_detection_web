@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Upload from '@/components/Upload'
+import UploadFile from '@/components/UploadFile'
 import Train from '@/components/Train'
 import Home from '@/components/Home'
 import Predict from '@/components/Predict'
@@ -14,8 +14,8 @@ export default new Router({
     component: Home
   }, {
     path: '/upload',
-    name: 'upload',
-    component: Upload
+    name: 'uploadFile',
+    component: UploadFile
   }, {
     path: '/train',
     name: 'train',
