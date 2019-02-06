@@ -19,6 +19,7 @@
 import axios from "axios";
 const urlJSON = "http://localhost:4000/predict";
 const urlVideo = "http://localhost:4000/video";
+var Blob = require("blob");
 
 export default {
   name: "home",
@@ -30,8 +31,9 @@ export default {
       }).then(response => {
         // eslint-disable-next-line
         console.log(response.data);
+        let resultData = response.data;
 
-        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const url = window.URL.createObjectURL(new Blob([resultData]));
         const link = document.createElement("a");
         link.href = url;
         link.setAttribute("download", "result.json"); //or any other extension
@@ -48,6 +50,9 @@ export default {
         method: "GET",
         url: urlVideo
       }).then(response => {
+        // eslint-disable-next-line
+        console.log(response.data);
+
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement("a");
         link.href = url;
