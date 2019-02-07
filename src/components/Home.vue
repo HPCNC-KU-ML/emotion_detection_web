@@ -31,7 +31,8 @@ export default {
       }).then(response => {
         // eslint-disable-next-line
         console.log(response.data);
-        let resultData = response.data;
+
+        let resultData = JSON.stringify(response.data);
 
         const url = window.URL.createObjectURL(new Blob([resultData]));
         const link = document.createElement("a");
@@ -41,7 +42,7 @@ export default {
         link.click();
         link.parentNode.removeChild(link);
 
-        window.open(url);
+        // window.open(url);
         return response;
       });
     },
@@ -53,17 +54,19 @@ export default {
         // eslint-disable-next-line
         console.log(response.data);
 
-        const url = window.URL.createObjectURL(new Blob([response.data]));
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", "output.avi"); //or any other extension
-        document.body.appendChild(link);
-        link.click();
-        link.parentNode.removeChild(link);
+        // let resultData = JSON.stringify(response.data);
 
-        window.open(url);
+        // const url = window.URL.createObjectURL(new Blob([resultData]));
+        // const link = document.createElement("a");
+        // link.href = url;
+        // link.setAttribute("download", "output.avi"); //or any other extension
+        // document.body.appendChild(link);
+        // link.click();
+        // link.parentNode.removeChild(link);
 
-        return response;
+        // window.open(url);
+
+        // return response;
       });
     }
   }
