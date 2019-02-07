@@ -29,45 +29,25 @@ export default {
         method: "GET",
         url: urlJSON
       }).then(response => {
-        // eslint-disable-next-line
-        console.log(response.data);
-
         let resultData = JSON.stringify(response.data);
 
         const url = window.URL.createObjectURL(new Blob([resultData]));
         const link = document.createElement("a");
         link.href = url;
-        link.setAttribute("download", "result.json"); //or any other extension
+        link.setAttribute("download", "result.json");
         document.body.appendChild(link);
         link.click();
         link.parentNode.removeChild(link);
-
-        // window.open(url);
         return response;
       });
     },
     getVideo() {
-      axios({
-        method: "GET",
-        url: urlVideo
-      }).then(response => {
-        // eslint-disable-next-line
-        console.log(response.data);
-
-        // let resultData = JSON.stringify(response.data);
-
-        // const url = window.URL.createObjectURL(new Blob([resultData]));
-        // const link = document.createElement("a");
-        // link.href = url;
-        // link.setAttribute("download", "output.avi"); //or any other extension
-        // document.body.appendChild(link);
-        // link.click();
-        // link.parentNode.removeChild(link);
-
-        // window.open(url);
-
-        // return response;
-      });
+      const link = document.createElement("a");
+      link.href = urlVideo;
+      link.setAttribute("download", "output.avi");
+      document.body.appendChild(link);
+      link.click();
+      link.parentNode.removeChild(link);
     }
   }
 };
