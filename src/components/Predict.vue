@@ -22,19 +22,23 @@
         </span>
       </div>
     </section>
+    <b-field>Minimum Score
+      <b-input placeholder="Number" type="number" min="0" max="100" v-model="score"></b-input>
+    </b-field>
     <button class="button is-primary" style="margin-top: 2%;" @click="predict">Predict</button>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-const url = "http://localhost:4000/predict";
+const url = "http://localhost:4000/predict/";
 
 export default {
   name: "predict",
   data() {
     return {
-      dropFiles: []
+      dropFiles: [],
+      score: 0
     };
   },
   methods: {
@@ -45,12 +49,13 @@ export default {
       this.dropFiles = [];
     },
     predict() {
+      let tempUrl = url + this.score / 100;
       this.dropFiles.forEach(file => {
         let formData = new window.FormData();
         formData.append("files", file);
         axios({
           method: "POST",
-          url,
+          url: tempUrl,
           data: formData
         }).then(response => {
           // this.uploadSuccess = true;
